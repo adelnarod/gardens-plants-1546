@@ -1,0 +1,7 @@
+<h1>All Gardens</h1>
+
+<% @gardens.each do |garden| %>
+  <ul>
+    <li><%= link_to garden.name, garden_path(garden) %></li>
+  </ul>
+<% end %>

@@ -1,0 +1,24 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @garden.banner_url %>);">
+  <div class="container">
+    <h1><%= @garden.name.capitalize %></h1>
+  </div>
+</div>
+<div class="container">
+  <% @plants.each do |plant| %>
+    <div class="card-product">
+      <%= image_tag plant.photo_url %>
+      <div class="card-product-infos">
+        <h2><%= plant.name %></h2>
+      </div>
+      <%= link_to plant_path(plant), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+        <div><i class="fa-solid fa-trash"></i></div>
+      <% end %>
+    </div>
+
+
+  <% end %>
+</div>
+
+<div class="container">
+  <%= link_to 'Add a Plant', new_garden_plant_path(@garden.id) %>
+</div>
